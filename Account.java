@@ -1,6 +1,26 @@
-interface Account {
-    public String accHolderName = "xxxxx";
-    public String accNo = "123456789";
+import java.util.LinkedList;
 
-    public void printName();
+abstract class Account {
+    protected int accNo;
+    protected String accHolderName;
+    protected double balance;
+    protected LinkedList<Transaction> history;
+
+    double getBalance () { return balance;}
+    String getName () { return accHolderName; }
+    LinkedList<Transaction> getHistory () { return history; }
+
+    void deposit (Deposit deposit) { 
+        balance += deposit.amount; 
+        history.add(new Transaction(deposit.amount, "+")); 
+    }
+
+    boolean withDrawl(double amount) { 
+        balance -= amount; 
+        System.out.println("Podhuva iruka withdrawl");
+        history.add(new Transaction(amount , "-"));
+        return true; 
+    }
+
+    abstract void endOfDay ();
 }
