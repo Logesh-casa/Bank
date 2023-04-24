@@ -5,7 +5,8 @@ class Main {
 
     public static void main (String args[]) {
         Scanner sc = new Scanner (System.in);
-
+        System.out.println("Enter 'q' to quit : ");
+        
         while (true) {
             System.out.println("\nwaiting for command : ".toUpperCase());
             String input = sc.nextLine();
@@ -37,6 +38,7 @@ class Main {
                 bank.getStatement(ParseInput.parseStatement(splitted));
                 break;
             default:
+                System.out.println("\n*** Invalid command! ***");
                 break;
         }
     }

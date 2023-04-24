@@ -14,12 +14,9 @@ class Savings extends Account {
 
     @Override
     boolean withDrawl(double amount) {
-        System.out.println("Particular ah iruka withdrawl");
         if (balance >= 5000) {
             balance -= amount;
-            System.out.println("Came");
-            System.out.println(history.add(new Transaction(amount , "-")));
-            System.out.println("added");
+            history.add(new Transaction(amount , "-"));
             return true;
         }
         return false;
